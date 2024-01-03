@@ -4,7 +4,7 @@ if __name__ == "__main__":
 
     path = "./data/raw/"
     train_images, train_labels = [], []
-    for i in range(1, 6):
+    for i in range(0, 10):
         train_images.append(torch.load(path + "train_images_" + str(i) + ".pt"))
         train_labels.append(torch.load(path + "train_target_" + str(i) + ".pt"))
 
