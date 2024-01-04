@@ -18,6 +18,7 @@ criterion = torch.nn.NLLLoss()
 train_losses = []
 model.train()
 for e in range(10):
+    print(f"Epoch {e+1}")
     for images, labels in train:
         images = images.view(images.shape[0], -1)
         optimizer.zero_grad()
