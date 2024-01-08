@@ -6,6 +6,7 @@ from torch import nn, optim
 
 from data import mnist
 
+
 @click.group()
 def cli():
     """Command line interface."""
@@ -61,7 +62,6 @@ def train(lr, epochs):
     model_path = "/Users/sorenbendtsen/Documents/GitHub/mlops/day2_soren_cookiecutter_project/day2_soren_cookiecutter_project/models/saved_models"
     torch.save(model.state_dict(), model_path + "/ffn_model_checkpoint.pt")
 
-    
 
 @click.command()
 @click.argument("model_checkpoint")
@@ -92,7 +92,7 @@ def evaluate(model_checkpoint):
             equals = top_class == labels.view(*top_class.shape)
             accuracy = torch.mean(equals.type(torch.FloatTensor))
             test_accuracy.append(accuracy.item())
-    
+
     # print accuracy
     print(f"Accuracy: {sum(test_accuracy)/len(test_accuracy)}")
     # save plot of test accuracy
@@ -100,8 +100,13 @@ def evaluate(model_checkpoint):
     plt.plot(test_accuracy)
     plt.savefig(fig_path + "/test_accuracy.png")
 
-cli.add_command(train) # in terminal, run: python train_model.py train --lr 1e-4 --epochs 10
-cli.add_command(evaluate) # in terminal, run: python train_model.py evaluate models/saved_models/ffn_model_checkpoint.pt
+
+cli.add_command(
+    train
+)  # in terminal, run: python train_model.py train --lr 1e-4 --epochs 10
+cli.add_command(
+    evaluate
+)  # in terminal, run: python train_model.py evaluate models/saved_models/ffn_model_checkpoint.pt
 
 
 if __name__ == "__main__":

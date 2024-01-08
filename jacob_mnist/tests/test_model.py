@@ -2,6 +2,7 @@ import torch
 from jacob_mnist.models.model import MyAwesomeModel
 import pytest
 
+
 class TestMyAwesomeModel:
     @pytest.fixture(autouse=True)
     def setup(self):

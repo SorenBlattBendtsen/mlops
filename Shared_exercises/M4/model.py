@@ -13,7 +13,7 @@ class MyAwesomeModel(nn.Module):
         self.fc3 = nn.Linear(64, 10)
         self.dropout = nn.Dropout(p=0.2)
         self.softmax = nn.LogSoftmax(dim=1)
-    
+
     def forward(self, x):
         x = self.fc1(x)
         x = self.relu1(x)
@@ -23,4 +23,3 @@ class MyAwesomeModel(nn.Module):
         x = self.dropout(x)
         x = self.fc3(x)
         return self.softmax(x)
-        
