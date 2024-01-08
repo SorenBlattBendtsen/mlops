@@ -35,8 +35,8 @@ jobs:
         pip install -r jacob_mnist/requirements.txt
         pip install -r jacob_mnist/requirements_tests.txt
     # get data from dvc
+    - uses: iterative/setup-dvc@v1
     - name: Get data
-      uses: iterative/setup-dvc@v1
       run: |
         dvc pull
       env:
