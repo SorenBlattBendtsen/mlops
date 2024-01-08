@@ -6,6 +6,7 @@ import pytest
 
 class TestMakeDataset:
     @pytest.fixture(autouse=True)
+    @pytest.mark.skipif(not os.path.exists(_PATH_DATA), reason="Data directory does not exist. Due to DVC")
     def setup_and_teardown(self):
         self.raw_path = os.path.join(_PATH_DATA, "raw/")
         self.processed_path = os.path.join(_PATH_DATA, "processed/")
