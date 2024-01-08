@@ -22,7 +22,7 @@ class MyAwesomeModel(LightningModule):
             nn.Flatten(),
             nn.Linear(8*20*20, 128),
             nn.Dropout(),
-            nn.Linear(128, 10),
+            nn.Linear(128, 9),
             nn.LogSoftmax(dim=1)
             )
 
