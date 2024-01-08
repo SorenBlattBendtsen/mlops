@@ -1,5 +1,5 @@
 # Base image
-FROM --platform=linux/arm64/v8 python:3.10-slim
+FROM --platform=linux/arm64/v8 python:3.11-slim
 
 # install python
 RUN apt update && \
