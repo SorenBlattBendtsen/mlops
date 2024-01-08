@@ -30,4 +30,4 @@ jobs:
         pip install -r jacob_mnist/requirements_tests.txt
     - name: Test with pytest
       run: |
-        pytest -v jacob_mnist/tests
+        pytest -v jacob_mnist/tests 
