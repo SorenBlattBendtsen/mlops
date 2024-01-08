@@ -1,4 +1,4 @@
-# This workflow will install Python dependencies, get data from dvc and run tests with pytest
+# This workflow will check for code style with ruff
 
 name: Run tests
 
@@ -31,16 +31,9 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r jacob_mnist/requirements.txt
-        pip install -r jacob_mnist/requirements_tests.txt
-    # get data from dvc
-    - uses: iterative/setup-dvc@v1
-    - name: Get data
+        pip install ruff
+
+    - name: Check code style with ruff
       run: |
-        cd jacob_mnist
-        dvc pull
-      env:
-          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
-    - name: Test with pytest
-      run: |
-        pytest -v jacob_mnist/tests
+        ruff check .
+        ruff format .
