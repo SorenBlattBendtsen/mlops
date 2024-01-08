@@ -28,6 +28,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r jacob_mnist/requirements.txt
         pip install -r jacob_mnist/requirements_tests.txt
+    - uses: iterative/setup-dvc@v1
+    - name: Get data
+      run: |
+        cd jacobs_mnist
+        dvc pull
+      env:
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
     - name: Test with pytest
       run: |
         pip install pytest
