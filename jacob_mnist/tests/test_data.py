@@ -4,6 +4,7 @@ import jacob_mnist.data.make_dataset as make_dataset
 from tests import _PATH_DATA
 import pytest
 
+@pytest.mark.skipif(not os.path.exists(_PATH_DATA), reason="Data files not found")
 class TestMakeDataset:
     @pytest.fixture(autouse=True)
     def setup_and_teardown(self):
