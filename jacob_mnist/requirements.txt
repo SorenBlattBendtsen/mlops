@@ -7,4 +7,3 @@ dvc
 dvc[gdrive]
 argparse
 pytorch-lightning
-os
