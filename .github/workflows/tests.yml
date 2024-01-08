@@ -23,7 +23,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: iterative/setup-dvc@v1
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
@@ -37,9 +36,11 @@ jobs:
         pip install -r jacob_mnist/requirements_tests.txt
     # get data from dvc
     - name: Get data
-        run: dvc pull
-        env:
-            GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+      uses: iterative/setup-dvc@v1
+      run: |
+        dvc pull
+      env:
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
     - name: Test with pytest
       run: |
         pytest -v jacob_mnist/tests
