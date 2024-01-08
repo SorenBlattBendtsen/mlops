@@ -1,6 +1,4 @@
 from typing import Any
-from pytorch_lightning.utilities.types import STEP_OUTPUT
-import wandb
 from torch import nn
 import torch
 from pytorch_lightning import LightningModule
