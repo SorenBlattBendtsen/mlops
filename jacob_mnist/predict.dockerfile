@@ -9,7 +9,6 @@ RUN apt update && \
 COPY requirements.txt requirements.txt
 COPY pyproject.toml pyproject.toml
 COPY jacob_mnist/ jacob_mnist/
-COPY data/ data/
 COPY models/ models/
 COPY reports/ reports/
 
