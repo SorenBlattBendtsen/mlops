@@ -1,6 +1,8 @@
-import torch
-from jacob_mnist.models.model import MyAwesomeModel
 import pytest
+import torch
+
+from jacob_mnist.models.model import MyAwesomeModel
+
 
 class TestMyAwesomeModel:
     @pytest.fixture(autouse=True)

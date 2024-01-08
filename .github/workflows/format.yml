@@ -29,5 +29,5 @@ jobs:
         pip install ruff mypy
     - name: Check with ruff
       run: |
-        ruff check .
-        ruff format .
+        ruff check jacob_mnist/
+        ruff format jacbo_mnist/

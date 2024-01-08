@@ -1,7 +1,8 @@
-import torch
 import argparse
-from models.model import MyAwesomeModel
 
+import torch
+
+from models.model import MyAwesomeModel
 
 # add arguments to parser
 parser = argparse.ArgumentParser()

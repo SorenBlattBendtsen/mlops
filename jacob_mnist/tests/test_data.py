@@ -1,8 +1,11 @@
-import torch
 import os
+
+import pytest
+import torch
+
 import jacob_mnist.data.make_dataset as make_dataset
 from tests import _PATH_DATA
-import pytest
+
 
 @pytest.mark.skipif(not os.path.exists(_PATH_DATA), reason="Data files not found")
 class TestMakeDataset:
@@ -19,7 +22,7 @@ class TestMakeDataset:
     def test_train_images(self):
         make_dataset.main(_PATH_DATA)
         train_images = torch.load(self.processed_path + "train_images.pt")
-        assert train_images.mean() == pytest.approx(0, abs = 1e-3), "Mean of train_images should be 0"
+        assert train_images.mean() == pytest.approx(0, abs=1e-3), "Mean of train_images should be 0"
         assert train_images.std() == pytest.approx(1), "Standard deviation of train_images should be 1"
         assert len(train_images) == 50000, "Length of train_images should be 50000"
         assert train_images[0].shape == (28, 28), "Shape of the first image in train_images should be (1, 28, 28)"
@@ -34,7 +37,7 @@ class TestMakeDataset:
     def test_test_images(self):
         make_dataset.main(_PATH_DATA)
         test_images = torch.load(self.processed_path + "test_images.pt")
-        assert test_images.mean() == pytest.approx(0, abs = 1e-3), "Mean of test_images should be 0"
+        assert test_images.mean() == pytest.approx(0, abs=1e-3), "Mean of test_images should be 0"
         assert test_images.std() == pytest.approx(1), "Standard deviation of test_images should be 1"
         assert len(test_images) == 5000, "Length of test_images should be 5000"
         assert test_images[0].shape == (28, 28), "Shape of the first image in test_images should be (1, 28, 28)"
@@ -49,7 +52,7 @@ class TestMakeDataset:
     def test_empty_train(self):
         with pytest.raises(ValueError, match="Train images or labels are empty."):
             make_dataset.main(_PATH_DATA, empty_train=True)
-    
+
     def test_empty_test(self):
         with pytest.raises(ValueError, match="Test images or labels are empty."):
             make_dataset.main(_PATH_DATA, empty_test=True)

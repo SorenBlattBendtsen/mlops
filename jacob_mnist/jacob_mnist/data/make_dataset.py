@@ -1,7 +1,9 @@
-import torch
 import os
 
-def main(path = "./data/", empty_train = False, empty_test = False):
+import torch
+
+
+def main(path="./data/", empty_train=False, empty_test=False):
     # Get the data and process it
     path_raw = os.path.join(path, "raw/")
     train_images, train_labels = [], []
@@ -30,7 +32,7 @@ def main(path = "./data/", empty_train = False, empty_test = False):
     if empty_test:
         test_images = None
         test_labels = None
-        
+
     if test_images is None or test_labels is None:
         raise ValueError("Test images or labels are empty.")
 
@@ -40,6 +42,7 @@ def main(path = "./data/", empty_train = False, empty_test = False):
     torch.save(train_labels, path_processed + "train_target.pt")
     torch.save(test_images, path_processed + "test_images.pt")
     torch.save(test_labels, path_processed + "test_target.pt")
+
 
 if __name__ == "__main__":
     main()
