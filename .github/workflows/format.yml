@@ -30,4 +30,4 @@ jobs:
     - name: Check with ruff
       run: |
         ruff check jacob_mnist/
-        ruff format jacbo_mnist/
+        ruff format jacob_mnist/
