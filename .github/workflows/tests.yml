@@ -37,7 +37,9 @@ jobs:
     # get data from dvc
     - uses: iterative/setup-dvc@v1
     - name: Get data
-      run: dvc pull -r jacob_mnist/
+      run: |
+        cd jacob_mnist
+        dvc pull
       env:
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
     - name: Test with pytest
