@@ -9,7 +9,7 @@ RUN apt update && \
 COPY requirements.txt requirements.txt
 COPY pyproject.toml pyproject.toml
 COPY jacob_mnist/ jacob_mnist/
-COPY data/ data/
+# COPY data/ data/ - removed for dockerhub
 COPY models/ models/
 COPY reports/ reports/
 
