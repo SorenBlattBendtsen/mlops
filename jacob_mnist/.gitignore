@@ -179,3 +179,5 @@ cython_debug/
 /wandb
 /lightning_logs
 /models/*.ckpt
+
+keys.json
