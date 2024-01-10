@@ -18,7 +18,7 @@ class TestMyAwesomeModel:
         ), f"Output shape for batch size {batch_size} should be ({batch_size}, 10)"
 
     def test_training_step(self):
-        images = torch.rand((32, 1, 28, 28))  # Input tensor with shape (32, 1, 28, 28)
+        images = torch.rand((32, 28, 28))  # Input tensor with shape (32, 1, 28, 28)
         labels = torch.randint(0, 10, (32,))  # Random labels
         batch = (images, labels)
         loss = self.model.training_step(batch)

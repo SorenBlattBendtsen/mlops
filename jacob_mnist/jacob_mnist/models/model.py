@@ -35,7 +35,7 @@ class MyAwesomeModel(LightningModule):
 
     def training_step(self, batch):
         images, labels = batch
-        # images = images.unsqueeze(1)
+        images = images.unsqueeze(1)
         out = self(images)
         # self.logger.experiment.log({'logits': wandb.Histogram(out.detach().cpu().numpy())})
         loss = self.criterium(out, labels)
@@ -44,7 +44,7 @@ class MyAwesomeModel(LightningModule):
 
     def test_step(self, batch):
         images, labels = batch
-        #    images = images.unsqueeze(1)
+        images = images.unsqueeze(1)
         out = self(images)
         loss = self.criterium(out, labels)
         self.log("test_loss", loss)
